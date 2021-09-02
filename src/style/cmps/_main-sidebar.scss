@@ -1,0 +1,36 @@
+.ant-layout-sider {
+    background-color: $clr-dark;
+    padding: rem(6px);
+    transition: all .3s ease-in-out;
+
+    &-children {
+        height: 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        h1 {
+            background-color: lighten($clr-dark, 10%);
+            color: $clr-light;
+            font-size: rem(24px);
+            line-height: 2;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            transition: line-height .3s ease-in-out;
+        }
+    }
+    &-collapsed {
+        .ant-layout-sider-children {
+            overflow: hidden;
+
+            h1 {
+                line-height: 1.2;
+            }
+        }
+    }
+    &-trigger {
+        transition: all .3s ease-in-out;
+        background-color: lighten($clr-dark, 10%);
+        left: 0;
+    }
+}

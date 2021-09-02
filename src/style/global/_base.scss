@@ -1,0 +1,27 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+*::selection {
+    background-color: $clr1;
+    color: $clr-light;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-weight: normal;
+    font-family: ubuntu, sans-serif;
+    color: $clr-dark;
+    background-color: $clr-light;
+    letter-spacing: 0;
+    font-size: rem(16px);
+    line-height: 1.25;
+}
+[contenteditable]:focus {
+    outline: 0px solid transparent;
+}

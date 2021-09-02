@@ -1,0 +1,88 @@
+// General Helpers
+.num-value {
+    color: $clr-num;
+}
+.bool-value {
+    color: $clr-bool;
+}
+
+// Flex Helpers
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.flex-align-center {
+    display: flex;
+    align-items: center;
+}
+.flex-coloumn {
+    display: flex;
+    flex-direction: column;
+}
+.flex-coloumn-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.flex-space-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.flex-space-around {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.d-flex {
+    display: flex;
+}
+
+// Typography helpers
+.font-bold {
+    font-family: ubuntu-bold, sans-serif;
+}
+.font-med {
+    font-family: ubuntu-med, sans-serif;
+}
+.font-normal {
+    font-family: ubuntu, sans-serif;
+}
+.font-uppercase {
+    text-transform: uppercase;
+}
+.font-capitalize {
+    text-transform: capitalize;
+}
+.txt-center {
+    text-align: center;
+}
+.clip-txt {
+    display: inline-block;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.sub-txt {
+    font-size: .875em;
+    font-style: italic;
+}
+.normal-txt {
+    font-style: normal;
+}
+
+// Aspect-Ratio Helpers
+.ratio-16-9 {
+    @include aspect-ratio(100, 56);
+}
+.ratio-square {
+    @include aspect-ratio(100, 100);
+}
+.ratio-card {
+    @include aspect-ratio(80, 100);
+}
+.ratio-poster {
+    @include aspect-ratio(100, 150);
+}

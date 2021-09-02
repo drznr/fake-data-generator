@@ -1,0 +1,33 @@
+.main-header {
+    background-color: $white;
+    min-height: 160px;
+    padding: rem(8px) rem(16px);
+}
+
+.main-footer {
+    background-color: $clr-light;
+    padding: rem(12px) 0;
+    text-align: center;
+}
+
+.logo-txt {
+    background-image: linear-gradient(to right, $clr1 1ch, $clr1 1ch, $clr2 1ch, $clr2 2ch, $clr-light 2ch, $clr-light 3ch, $clr3 3ch, $clr3 4ch);
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.breadcrumbs-row {
+    margin: rem(16px) 0;
+    padding: 0 rem(16px);
+    font-size: rem(20px);
+}
+
+.output-preview {
+    flex-grow: 1;
+    height: 0;
+    background-color: $white;
+    margin: 0 16px;
+    overflow: auto;
+}
