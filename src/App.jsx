@@ -1,19 +1,39 @@
 import { useState } from 'react';
-import { useRecoilValue } from 'recoil';/// DELETE ME AFTER@!
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { entityName } from './state/entity-name';
 import { entitiesLength } from './state/entities-length';
-import { Layout, Breadcrumb } from 'antd';
+import { isEmpty, output } from './state/output';
+import { Layout, Breadcrumb, Select, Button } from 'antd';
+import { DownloadOutlined } from '@ant-design/icons';
 import MainSidebar from './cmps/MainSidebar';
 import OutputPreview from './cmps/OutputPreview';
 import Editor from './cmps/Editor';
+import ContentEditable from './cmps/common/ContentEditable';
+import { download } from './services/output-generate.service';
+import pluralize from 'pluralize';
 
 const { Header, Content, Footer, Sider } = Layout;
 
 const App = () => {
-    const [ entity, setEntity ] = useRecoilState(entityName);// USE SETTER WITH CONTENT EDITABLE
-    const length = useRecoilValue(entitiesLength);
+    const [ entity, setEntity ] = useRecoilState(entityName);
+    const [ length, setLength ] = useRecoilState(entitiesLength);
     const [ isCollapsed, setIsCollapsed ] = useState(false);
+    const outputObj = useRecoilValue(output);
+    const isOutPutEmpty = useRecoilValue(isEmpty);
+    
+    const generateData = () => {
+        const outputJSON = {};
+        const entityName = pluralize(entity.toLowerCase(), length);
+        outputJSON[entityName] = new Array(length).fill(outputObj);
+        outputJSON[entityName] = outputJSON[entityName].map(item => {
+            const copy = { ...item };
+            Object.entries(copy).forEach(([ key, value ]) => {
+                if (typeof value === 'function') copy[key] = value();
+            });
+            return copy;
+        });
+        download(JSON.stringify(outputJSON), entityName);
+    }
 
     return (
         <Layout className="site-layout">
@@ -30,16 +50,41 @@ const App = () => {
                     <Editor />
                 </Header>
                 <Content className="site-layout-content">
-                <Breadcrumb className="breadcrumbs-row">
-                    <Breadcrumb.Item>
-                        <span>
-                            {entity}
-                        </span>
-                    </Breadcrumb.Item>
-                    <Breadcrumb.Item>
-                        <span>&times;<span className="num-value">{length}</span></span>
-                    </Breadcrumb.Item>
-                </Breadcrumb>
+                <div className="flex-space-between">
+                    <Breadcrumb className="breadcrumbs-row">
+                        <Breadcrumb.Item>
+                            <ContentEditable
+                                initialValue={entity}
+                                onChange={setEntity}
+                            />
+                        </Breadcrumb.Item>
+                        <Breadcrumb.Item>
+                            <span className="length-picker-select">&times;
+                                <Select
+                                    className="num-value"
+                                    value={length}
+                                    onChange={setLength}
+                                    bordered={false}
+                                    dropdownMatchSelectWidth={false}
+                                >
+                                    <Select.Option value={10}>10</Select.Option>
+                                    <Select.Option value={100}>100</Select.Option>
+                                    <Select.Option value={1000}>1000</Select.Option>
+                                </Select>
+                            </span>
+                        </Breadcrumb.Item>
+                    </Breadcrumb>
+                    <Button
+                        type="primary"
+                        className="download-btn"
+                        size="medium"
+                        icon={<DownloadOutlined />} 
+                        disabled={!entity || isOutPutEmpty}
+                        onClick={generateData}
+                    >
+                        Download JSON
+                    </Button>
+                </div>
                     <OutputPreview />
                 </Content>
                 <Footer className="main-footer">

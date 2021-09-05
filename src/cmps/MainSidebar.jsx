@@ -12,12 +12,15 @@ const MainSidebar = () => {
             </h1>
             <Menu
                 theme="dark"
-                mode="inline"
+                mode="vertical"
+                selectable={false}
             >
                 {
                     previewEntries.map(([ key, value ]) => 
                     //~~TODO: ADD ICON BY TYPE
-                        <Menu.Item key={key}>
+                        <Menu.Item
+                            key={key}
+                        >
                             <span>{key}</span> :
                             <span>{`${value}`}</span>
                         </Menu.Item>
