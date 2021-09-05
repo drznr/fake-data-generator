@@ -89,7 +89,7 @@ const App = () => {
                 </Content>
                 <Footer className="main-footer">
                     <div className="main-container sub-txt">
-                        JSON Faker &copy; 2021 Created by Daniel Dresner with <span className="normal-txt" title="Love!">❤️</span> to ya'll fellow <span className="normal-txt" title="Nerds!">🤓</span>
+                        JSON Faker &copy; 2021 Created by Daniel Dresner with <span className="normal-txt" title="Love!">❤️</span> to ya'll fellow <span className="normal-txt" title="Unicorns!">🦄</span>
                     </div>
                 </Footer>
             </Layout>

@@ -3,6 +3,37 @@
     padding: rem(6px);
     transition: all .3s ease-in-out;
 
+    
+    .ant-menu-item {
+        cursor: default;
+    }
+    .ant-menu-title-content {
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+    .entry-seperator {
+        display: inline-block;
+        margin: 0 rem(8px);
+        color: $clr2;
+    }
+    .entry-actions button {
+        color: $clr-light;
+        border-color: $clr-light;
+        
+        &:not(:last-child) {
+            margin-inline-end: rem(4px);
+        }
+    }
+    .ant-typography {
+        max-width: 6ch;
+        line-height: 1.2;
+    }
+    code {
+        background: $clr-light;
+        color: $clr-dark;
+    }
+
     &-children {
         height: 0;
         overflow-y: auto;
@@ -21,11 +52,15 @@
     }
     &-collapsed {
         .ant-layout-sider-children {
-            overflow: hidden;
+            // overflow: hidden;
 
             h1 {
                 line-height: 1.2;
             }
+        }
+        .entry-seperator,
+        .entry-actions {
+            display: none;
         }
     }
     &-trigger {
