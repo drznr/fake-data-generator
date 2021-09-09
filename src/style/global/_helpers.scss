@@ -2,7 +2,11 @@
 .num-value {
     color: $clr-num;
 }
-.bool-value {
+.str-value {
+    color: $clr-str;
+}
+.bool-value,
+.null-value {
     color: $clr-bool;
 }
 

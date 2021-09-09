@@ -10,7 +10,8 @@ export  {
     getRandomDec,
     getRandomBoolean,
     getRandomDate,
-    getRandomColor
+    getRandomColor,
+    getRandomOption
 }
 
 function getUUID() {
@@ -67,4 +68,8 @@ function getRandomColor(format) {
         default:
             return ('#' + Math.floor(Math.random()*16777215).toString(16)).toUpperCase();
     }
+}
+
+function getRandomOption(options) {
+    return options[Math.floor(Math.random() * options.length)];
 }

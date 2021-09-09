@@ -12,10 +12,16 @@ const DatesPicker = ({ onChange }) => {
         onChange(getRandomDate.bind(null, from, to, dateFormat));
     }, [ dateRange, dateFormat, onChange ]);
 
+    const handleChange = range => {
+        if (!range) return;
+        const [ from, to ] = range;
+        setDateRange({ from: from.toDate(), to: to.toDate() });
+    }
+
     return (
         <div className="date-picker flex-coloumn-center">
             <DatePicker.RangePicker
-                onChange={([ from, to ]) => setDateRange({ from: from.toDate(), to: to.toDate() })}
+                onChange={handleChange}
             />
             <div className="date-picker-format">
                 <Radio.Group

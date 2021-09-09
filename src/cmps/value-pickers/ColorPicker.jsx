@@ -17,14 +17,14 @@ const ColorPicker = ({ onChange }) => {
                 value={colorFormat}
                 onChange={(e) => setColorFormat(e.target.value)}
             >   
-                <div className="color-picker-container">
-                    <span className="flex-center">
+                <div className="value-picker-container">
+                    <span className="col flex-center">
                         <Radio value="hex">Hex</Radio>
                     </span>
-                    <span className="flex-center">
+                    <span className="col flex-center">
                         <Radio value="rgb">RGB</Radio>
                     </span>
-                    <span className="flex-center">
+                    <span className="col flex-center">
                         <Radio value="hsl">HSL</Radio>
                     </span>
                 </div>

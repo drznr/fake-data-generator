@@ -11,27 +11,28 @@ const Editor = () => {
     const [ entryValue, setEntryValue ] = useState(null);
     const [ currValuePicker, setCurrValuePicker ] = useState('IdPicker');
 
+    const [ form ] = Form.useForm();
+
     useEffect(() => {
+        const setEditedEntry = key => {
+            form.setFieldsValue({ key });
+            setEntryKey(key);
+        }
+
         eventBus.on(EV_EDIT_ENTRY, setEditedEntry);
         return () => {
             eventBus.off(EV_EDIT_ENTRY, setEditedEntry);
         }
-    }, []);
-
-    const setEditedEntry = key => {
-        form.setFieldsValue({ key });
-        setEntryKey(key);
-    }
+    }, [ form ]);
 
     const updatePreview = () => {
-        //~TODO: validation with form methods(?) & check dup key
+        //~TODO: validation (?) -- wrong values
         form.resetFields();
-        //~TODO: focus key input ?
         const copy = { ...output };
         copy[entryKey] = entryValue;
         setOutput(copy);
         setEntryKey('');
-        //~TODO: reset value ?
+        //~TODO: reset value (?)
     }
 
     const updateValue = useCallback((value) => {
@@ -42,7 +43,7 @@ const Editor = () => {
         setEntryKey(ev.target.value);
     }
 
-    const [ form ] = Form.useForm();
+    
     const ValuePicker = ValuePickers[currValuePicker];
     return (
         <section className="editor">
@@ -62,6 +63,7 @@ const Editor = () => {
                             value={entryKey}
                             placeholder="Key"
                             onChange={handleChange}
+                            autoFocus
                             autoComplete="off"
                         />
                     </Form.Item>
@@ -72,9 +74,11 @@ const Editor = () => {
                         >
                             <Select.Option value="IdPicker">String - ID</Select.Option>
                             <Select.Option value="ColorPicker">String - Color</Select.Option>
+                            <Select.Option value="OneOfPicker">String - one of</Select.Option>
                             <Select.Option value="NumberPicker">Number</Select.Option>
                             <Select.Option value="DatesPicker">Date</Select.Option>
                             <Select.Option value="BooleanPicker">Boolean</Select.Option>
+                            <Select.Option value="StaticValuesPicker">Static values</Select.Option>
                         </Select>
                     </Form.Item>
                     <Form.Item>
