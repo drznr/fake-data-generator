@@ -23,12 +23,24 @@
     padding: 0 rem(16px);
     font-size: rem(20px);
 
+    .ant-breadcrumb-link {
+        &:first-child {
+            padding-inline-end: rem(22px);
+            position: relative;
+        }
+    }
     .length-picker-select {
         display: inline-flex;
         align-items: center;
     }
     .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
         padding-inline-start: 0;
+    }
+    .edit-icon {
+        position: absolute;
+        top: 0;
+        right: 0px;
+        filter: opacity(.5);
     }
 }
 

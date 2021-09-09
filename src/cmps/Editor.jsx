@@ -1,6 +1,7 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import { outputSetter } from '../state/output';
+import { eventBus, EV_EDIT_ENTRY } from '../services/event-bus.service';
 import ValuePickers from './value-pickers';
 import { Form, Input, Select, Button } from 'antd';
 
@@ -9,6 +10,18 @@ const Editor = () => {
     const [ entryKey, setEntryKey ] = useState('');
     const [ entryValue, setEntryValue ] = useState(null);
     const [ currValuePicker, setCurrValuePicker ] = useState('IdPicker');
+
+    useEffect(() => {
+        eventBus.on(EV_EDIT_ENTRY, setEditedEntry);
+        return () => {
+            eventBus.off(EV_EDIT_ENTRY, setEditedEntry);
+        }
+    }, []);
+
+    const setEditedEntry = key => {
+        form.setFieldsValue({ key });
+        setEntryKey(key);
+    }
 
     const updatePreview = () => {
         //~TODO: validation with form methods(?) & check dup key

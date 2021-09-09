@@ -11,6 +11,7 @@ import Editor from './cmps/Editor';
 import ContentEditable from './cmps/common/ContentEditable';
 import { download } from './services/output-generate.service';
 import pluralize from 'pluralize';
+import { EditOutlined } from '@ant-design/icons';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -57,6 +58,7 @@ const App = () => {
                                 initialValue={entity}
                                 onChange={setEntity}
                             />
+                            <EditOutlined className="edit-icon" />
                         </Breadcrumb.Item>
                         <Breadcrumb.Item>
                             <span className="length-picker-select">&times;

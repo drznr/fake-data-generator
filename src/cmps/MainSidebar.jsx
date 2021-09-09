@@ -1,10 +1,35 @@
 import { useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
+import { outputSetter } from '../state/output';
 import { entries } from '../state/output';
+import { eventBus, EV_EDIT_ENTRY } from '../services/event-bus.service';
 import { Menu, Typography, Button } from 'antd';
-import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
+import { DeleteOutlined, EditOutlined, FieldStringOutlined, FieldNumberOutlined, GlobalOutlined } from '@ant-design/icons';
 
 const MainSidebar = () => {
+    const [ output, setOutput ] = useRecoilState(outputSetter);
     const previewEntries = useRecoilValue(entries);
+
+    const editEntry = key => {
+        eventBus.emit(EV_EDIT_ENTRY, key);
+    }
+
+    const deleteEntry = key => {
+        const copy = { ...output };
+        delete copy[key];
+        setOutput(copy);
+    }
+
+    const getIconByType = type => {
+        switch (type) {
+            case 'string':
+                return <FieldStringOutlined />;
+            case 'number':
+                return <FieldNumberOutlined />;
+            default:
+                return <GlobalOutlined />;
+        }
+    }
 
     return (
         <>
@@ -17,10 +42,11 @@ const MainSidebar = () => {
                 selectable={false}
             >
                 {
-                    previewEntries.map(([ key ]) => 
+                    previewEntries.map(([ key, value ]) => 
                         <Menu.Item
                             key={key}
                             className="flex-align-center"
+                            icon={getIconByType(typeof value)}
                         >   
                             <Typography.Text code className="clip-txt">
                                 {key}
@@ -31,7 +57,7 @@ const MainSidebar = () => {
                                     ghost
                                     shape="round"
                                     size="small"
-                                    onClick={() => console.log('Updating', key)}
+                                    onClick={() => editEntry(key)}
                                     title="Edit"
                                 >
                                     <EditOutlined />
@@ -40,7 +66,7 @@ const MainSidebar = () => {
                                     ghost
                                     shape="round"
                                     size="small"
-                                    onClick={() => console.log('Deleting', key)}
+                                    onClick={() => deleteEntry(key)}
                                     title="Delete"
                                 >
                                     <DeleteOutlined />
