@@ -11,6 +11,12 @@ const StaticValuesPicker = ({ onChange }) => {
             case 'null':
                 onChange(null);
                 break;
+            case 'array':
+                onChange([]);
+                break;
+            case 'object':
+                onChange({});
+                break;
             case 'string':
                 onChange(strValue);
                 break;
@@ -30,6 +36,16 @@ const StaticValuesPicker = ({ onChange }) => {
                     <span className="col flex-center">
                         <Radio value="null">
                             <span className="null-value">null</span>
+                        </Radio>
+                    </span>
+                    <span className="col flex-center">
+                        <Radio value="array">
+                            <span>[ Array ]</span>
+                        </Radio>
+                    </span>
+                    <span className="col flex-center">
+                        <Radio value="object">
+                            <span>&#123; Object &#125;</span>
                         </Radio>
                     </span>
                     <span className="col flex-coloumn-center static-str">

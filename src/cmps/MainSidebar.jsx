@@ -4,7 +4,7 @@ import { outputSetter } from '../state/output';
 import { entries } from '../state/output';
 import { eventBus, EV_EDIT_ENTRY } from '../services/event-bus.service';
 import { Menu, Typography, Button } from 'antd';
-import { DeleteOutlined, EditOutlined, FieldStringOutlined, FieldNumberOutlined, GlobalOutlined } from '@ant-design/icons';
+import { DeleteOutlined, EditOutlined, FieldStringOutlined, FieldNumberOutlined, GlobalOutlined, FieldBinaryOutlined } from '@ant-design/icons';
 
 const MainSidebar = () => {
     const [ output, setOutput ] = useRecoilState(outputSetter);
@@ -26,6 +26,8 @@ const MainSidebar = () => {
                 return <FieldStringOutlined />;
             case 'number':
                 return <FieldNumberOutlined />;
+            case 'boolean':
+                return <FieldBinaryOutlined />;
             default:
                 return <GlobalOutlined />;
         }

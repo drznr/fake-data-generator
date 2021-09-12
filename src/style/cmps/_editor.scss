@@ -4,6 +4,7 @@
 
     &-body {
         flex-grow: 1;
+        overflow: hidden;
 
         & > * {
             height: 100%;
@@ -25,5 +26,26 @@
     
     form {
         height: 100%;
+    }
+    
+    .value-picker-enter {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+    .value-picker-enter-active {
+        opacity: 1;
+        transform: scale(1);
+        transition: opacity .3s ease-in-out, transform .3s ease-in-out;
+    }
+    
+    .value-picker-exit {
+        opacity: 1;
+        transform: scale(1);
+    }
+    
+    .value-picker-exit-active {
+        opacity: 0;
+        transform: scale(.9);
+        transition: opacity .3s ease-in-out, transform .3s ease-in-out;
     }
 }

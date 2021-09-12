@@ -2,8 +2,10 @@ import { useState, useCallback, useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import { outputSetter } from '../state/output';
 import { eventBus, EV_EDIT_ENTRY } from '../services/event-bus.service';
+import { usePrevious } from '../hooks/use-previous';
 import ValuePickers from './value-pickers';
 import { Form, Input, Select, Button } from 'antd';
+import { CSSTransition } from 'react-transition-group';
 
 const Editor = () => {
     const [ output, setOutput ] = useRecoilState(outputSetter);
@@ -11,8 +13,9 @@ const Editor = () => {
     const [ entryValue, setEntryValue ] = useState(null);
     const [ currValuePicker, setCurrValuePicker ] = useState('IdPicker');
 
+    const prevValuePicker = usePrevious(currValuePicker);
     const [ form ] = Form.useForm();
-
+    
     useEffect(() => {
         const setEditedEntry = key => {
             form.setFieldsValue({ key });
@@ -55,7 +58,14 @@ const Editor = () => {
                 onFinish={updatePreview}
             >
                 <div className="editor-body">
-                    <ValuePicker onChange={updateValue} />
+                    <CSSTransition
+                        in={currValuePicker === prevValuePicker}
+                        classNames="value-picker"
+                        timeout={300}
+                        unmountOnExit
+                    >
+                        <ValuePicker onChange={updateValue} />
+                    </CSSTransition>
                 </div>
                 <div className="editor-footer">
                     <Form.Item name="key" className="editor-footer-key-input">
