@@ -1,6 +1,7 @@
 import { ObjectId } from 'bson';
 import RandExp from 'randexp';
 import { v4 as uuidv4 } from 'uuid';
+// import Faker from 'faker'; // use Faker.js to generate names and such sync
 
 export  {
     getUUID,

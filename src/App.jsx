@@ -21,7 +21,8 @@ const App = () => {
     const [ isCollapsed, setIsCollapsed ] = useState(false);
     const outputObj = useRecoilValue(output);
     const isOutPutEmpty = useRecoilValue(isEmpty);
-    
+   
+
     const generateData = () => {
         const outputJSON = {};
         const entityName = pluralize(entity.toLowerCase(), length);
@@ -99,4 +100,4 @@ const App = () => {
     );
 }
 
-export default App
+export default App;

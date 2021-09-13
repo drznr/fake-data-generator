@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { useRecoilState } from 'recoil';
 import { outputSetter } from '../state/output';
 import { eventBus, EV_EDIT_ENTRY } from '../services/event-bus.service';
@@ -15,7 +15,8 @@ const Editor = () => {
 
     const prevValuePicker = usePrevious(currValuePicker);
     const [ form ] = Form.useForm();
-    
+    const transitionNodeRef = useRef(null);
+
     useEffect(() => {
         const setEditedEntry = key => {
             form.setFieldsValue({ key });
@@ -59,6 +60,7 @@ const Editor = () => {
             >
                 <div className="editor-body">
                     <CSSTransition
+                        nodeRef={transitionNodeRef}
                         in={currValuePicker === prevValuePicker}
                         classNames="value-picker"
                         timeout={300}
