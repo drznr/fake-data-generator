@@ -13,9 +13,9 @@ const Editor = () => {
     const [ entryValue, setEntryValue ] = useState(null);
     const [ currValuePicker, setCurrValuePicker ] = useState('IdPicker');
 
-    const prevValuePicker = usePrevious(currValuePicker);
     const [ form ] = Form.useForm();
     const transitionNodeRef = useRef(null);
+    const prevValuePicker = usePrevious(currValuePicker);
 
     useEffect(() => {
         const setEditedEntry = key => {
@@ -64,9 +64,10 @@ const Editor = () => {
                         in={currValuePicker === prevValuePicker}
                         classNames="value-picker"
                         timeout={300}
-                        unmountOnExit
                     >
-                        <ValuePicker onChange={updateValue} />
+                        <div className="editor-body-container" ref={transitionNodeRef}>
+                            <ValuePicker onChange={updateValue} />
+                        </div>
                     </CSSTransition>
                 </div>
                 <div className="editor-footer">
@@ -81,10 +82,11 @@ const Editor = () => {
                     </Form.Item>
                     <Form.Item  className="editor-footer-key-select">
                         <Select
-                            defaultValue="IdEditor"
+                            value={currValuePicker}
                             onChange={setCurrValuePicker}
                         >
                             <Select.Option value="IdPicker">String - ID</Select.Option>
+                            <Select.Option value="NamesPicker">String - Names</Select.Option>
                             <Select.Option value="ColorPicker">String - Color</Select.Option>
                             <Select.Option value="OneOfPicker">String - one of</Select.Option>
                             <Select.Option value="NumberPicker">Number</Select.Option>

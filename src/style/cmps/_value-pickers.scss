@@ -69,7 +69,7 @@
     }
 }
 .number-picker {
-    padding: rem(8px) 0;
+    padding: rem(8px) 0 0;
 
     &-body {
         flex-grow: 1;
@@ -90,10 +90,12 @@
         border-radius: 3px;
     }
 }
-.date-picker {
+.date-picker,
+.names-picker {
     padding: rem(8px) 0;
 
-    &-format {
+    &-format,
+    &-container {
         flex-grow: 1;
         align-self: stretch;
         display: flex;
@@ -103,10 +105,13 @@
             width: 100%;
         }
     }
+    .select-label {
+        margin-inline-end: rem(6px);
+    }
 }
 .color-picker,
 .static-values-picker {
-    padding: rem(8px) 0;
+    padding: rem(8px) 0 0;
 
     .static-str {
         height: 100%;
@@ -149,4 +154,7 @@
         background-color: darken($white, 3%);
         border-radius: 3px;
     }
+}
+.names-picker {
+    padding: rem(8px) 0;
 }

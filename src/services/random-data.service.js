@@ -1,7 +1,7 @@
 import { ObjectId } from 'bson';
 import RandExp from 'randexp';
 import { v4 as uuidv4 } from 'uuid';
-// import Faker from 'faker'; // use Faker.js to generate names and such sync
+import faker from 'faker';
 
 export  {
     getUUID,
@@ -12,7 +12,8 @@ export  {
     getRandomBoolean,
     getRandomDate,
     getRandomColor,
-    getRandomOption
+    getRandomOption,
+    getRandomName
 }
 
 function getUUID() {
@@ -73,4 +74,9 @@ function getRandomColor(format) {
 
 function getRandomOption(options) {
     return options[Math.floor(Math.random() * options.length)];
+}
+
+function getRandomName(nameType, locale = 'en') {
+    faker.setLocale(locale);
+    return faker.name[nameType]();
 }
