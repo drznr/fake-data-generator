@@ -87,6 +87,7 @@ const Editor = () => {
                         >
                             <Select.Option value="IdPicker">String - ID</Select.Option>
                             <Select.Option value="NamesPicker">String - Names</Select.Option>
+                            <Select.Option value="AddressPicker">String - Address</Select.Option>
                             <Select.Option value="ColorPicker">String - Color</Select.Option>
                             <Select.Option value="OneOfPicker">String - one of</Select.Option>
                             <Select.Option value="NumberPicker">Number</Select.Option>

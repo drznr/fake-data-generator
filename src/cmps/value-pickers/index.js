@@ -8,5 +8,6 @@ comps['NumberPicker'] = require('./NumberPicker').default;
 comps['ColorPicker'] = require('./ColorPicker').default;
 comps['StaticValuesPicker'] = require('./StaticValuesPicker').default;
 comps['OneOfPicker'] = require('./OneOfPicker').default;
+comps['AddressPicker'] = require('./AddressPicker').default;
 
 export default comps;

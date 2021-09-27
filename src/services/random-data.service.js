@@ -13,7 +13,8 @@ export  {
     getRandomDate,
     getRandomColor,
     getRandomOption,
-    getRandomName
+    getRandomName,
+    getRandomAddress
 }
 
 function getUUID() {
@@ -79,4 +80,9 @@ function getRandomOption(options) {
 function getRandomName(nameType, locale = 'en') {
     faker.setLocale(locale);
     return faker.name[nameType]();
+}
+
+function getRandomAddress(addressType, locale = 'en') {
+    faker.setLocale(locale);
+    return faker.address[addressType]();
 }
