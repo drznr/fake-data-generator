@@ -14,7 +14,8 @@ export  {
     getRandomColor,
     getRandomOption,
     getRandomName,
-    getRandomAddress
+    getRandomAddress,
+    getRandomAnimal
 }
 
 function getUUID() {
@@ -85,4 +86,8 @@ function getRandomName(nameType, locale = 'en') {
 function getRandomAddress(addressType, locale = 'en') {
     faker.setLocale(locale);
     return faker.address[addressType]();
+}
+
+function getRandomAnimal(animalType) {
+    return faker.animal[animalType]();
 }

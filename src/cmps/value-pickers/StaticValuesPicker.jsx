@@ -40,12 +40,12 @@ const StaticValuesPicker = ({ onChange }) => {
                     </span>
                     <span className="col flex-center">
                         <Radio value="array">
-                            <span>[ Array ]</span>
+                            <span className="array-value">Empty Array [ ]</span>
                         </Radio>
                     </span>
                     <span className="col flex-center">
                         <Radio value="object">
-                            <span>&#123; Object &#125;</span>
+                            <span className="object-value">Empty Object &#123; &#125;</span>
                         </Radio>
                     </span>
                     <span className="col flex-coloumn-center static-str">

@@ -9,5 +9,7 @@ comps['ColorPicker'] = require('./ColorPicker').default;
 comps['StaticValuesPicker'] = require('./StaticValuesPicker').default;
 comps['OneOfPicker'] = require('./OneOfPicker').default;
 comps['AddressPicker'] = require('./AddressPicker').default;
+comps['AnimalPicker'] = require('./AnimalPicker').default;
+comps['CommercePicker'] = require('./CommercePicker').default;
 
 export default comps;

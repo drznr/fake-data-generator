@@ -9,6 +9,12 @@
 .null-value {
     color: $clr-bool;
 }
+.array-value {
+    color: $clr2;
+}
+.object-value {
+    color: $clr1;
+}
 
 // Flex Helpers
 .flex-center {
