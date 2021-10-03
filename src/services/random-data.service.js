@@ -15,7 +15,8 @@ export  {
     getRandomOption,
     getRandomName,
     getRandomAddress,
-    getRandomAnimal
+    getRandomAnimal,
+    getRandomCommerceValue
 }
 
 function getUUID() {
@@ -77,7 +78,7 @@ function getRandomColor(format) {
 function getRandomOption(options) {
     return options[Math.floor(Math.random() * options.length)];
 }
-
+/// TODO: combine all these to getRandomFakerValue(department, type, locale = 'en')
 function getRandomName(nameType, locale = 'en') {
     faker.setLocale(locale);
     return faker.name[nameType]();
@@ -90,4 +91,8 @@ function getRandomAddress(addressType, locale = 'en') {
 
 function getRandomAnimal(animalType) {
     return faker.animal[animalType]();
+}
+
+function getRandomCommerceValue(type) {
+    return faker.commerce[type]();
 }
