@@ -13,7 +13,7 @@ const CredentialsPicker = ({ onChange }) => {
     }, [ credentail, onChange ]);
 
     return (
-        <div className="credentials-picker">
+        <div className="value-picker">
             <Radio.Group
                 size="large"
                 value={credentail}

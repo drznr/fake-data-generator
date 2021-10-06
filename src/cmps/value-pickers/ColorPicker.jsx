@@ -11,7 +11,7 @@ const ColorPicker = ({ onChange }) => {
     }, [ colorFormat, onChange ]);
 
     return (
-        <div className="color-picker">
+        <div className="value-picker">
             <Radio.Group
                 size="large"
                 value={colorFormat}

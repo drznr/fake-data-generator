@@ -13,7 +13,7 @@ const CommercePicker = ({ onChange }) => {
     }, [ commerceValue, onChange ]);
 
     return (
-        <div className="commerce-picker">
+        <div className="value-picker">
             <Radio.Group
                 size="large"
                 value={commerceValue}

@@ -51,7 +51,7 @@
             text-align: center;
         }
     }
-    
+
     .ant-radio-wrapper {
         flex-direction: column;
         align-items: center;
@@ -110,15 +110,21 @@
         margin-inline-end: rem(6px);
     }
 }
-.color-picker,
-.static-values-picker,
-.animal-picker,
-.commerce-picker,
-.company-picker,
-.credentials-picker,
-.lorem-picker,
-.vehicle-picker {
+.value-picker {
     padding: rem(8px) 0 0;
+
+    &-container {
+        height: 100%;
+        display: flex;
+
+        & > .col {
+            flex-grow: 1;
+
+            &:not(:last-child) {
+                border-inline-end: 1px solid $clr-light;
+            }
+        }
+    }
 
     .static-str {
         height: 100%;
@@ -161,7 +167,4 @@
         background-color: darken($white, 3%);
         border-radius: 3px;
     }
-}
-.names-picker {
-    padding: rem(8px) 0;
 }

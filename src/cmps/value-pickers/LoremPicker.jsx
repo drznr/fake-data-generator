@@ -13,7 +13,7 @@ const LoremPicker = ({ onChange }) => {
     }, [ loremValue, onChange ]);
 
     return (
-        <div className="lorem-picker">
+        <div className="value-picker">
             <Radio.Group
                 size="large"
                 value={loremValue}

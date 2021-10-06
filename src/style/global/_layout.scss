@@ -32,16 +32,3 @@
         padding: 0;
     }
 }
-
-.value-picker-container {
-    height: 100%;
-    display: flex;
-
-    & > .col {
-        flex-grow: 1;
-
-        &:not(:last-child) {
-            border-inline-end: 1px solid $clr-light;
-        }
-    }
-}

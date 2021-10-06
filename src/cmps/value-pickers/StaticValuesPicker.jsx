@@ -26,7 +26,7 @@ const StaticValuesPicker = ({ onChange }) => {
     }, [ valueType, strValue, onChange ]);
 
     return (
-        <div className="static-values-picker">
+        <div className="value-picker">
             <Radio.Group
                 size="large"
                 value={valueType}
