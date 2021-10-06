@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
-import { getRandomCommerceValue } from '../../services/random-data.service';
+import { getRandomFakerValue } from '../../services/random-data.service';
 import { Radio } from 'antd';
+
+const getRandomCommerceValue = getRandomFakerValue.bind(null, 'commerce');
 
 const CommercePicker = ({ onChange }) => {
     const [ commerceValue, setCommerceValue ] = useState('productName');

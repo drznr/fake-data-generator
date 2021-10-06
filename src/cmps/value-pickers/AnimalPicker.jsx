@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
-import { getRandomAnimal } from '../../services/random-data.service';
+import { getRandomFakerValue } from '../../services/random-data.service';
 import { Radio } from 'antd';
+
+const getRandomAnimal = getRandomFakerValue.bind(null, 'animal');
 
 const AnimalPicker = ({ onChange }) => {
     const [ animalType, setAnimalType ] = useState('type');

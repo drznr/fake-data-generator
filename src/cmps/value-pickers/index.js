@@ -11,5 +11,6 @@ comps['OneOfPicker'] = require('./OneOfPicker').default;
 comps['AddressPicker'] = require('./AddressPicker').default;
 comps['AnimalPicker'] = require('./AnimalPicker').default;
 comps['CommercePicker'] = require('./CommercePicker').default;
+comps['CompanyPicker'] = require('./CompanyPicker').default;
 
 export default comps;

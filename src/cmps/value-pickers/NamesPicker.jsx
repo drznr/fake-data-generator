@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
-import { getRandomName } from '../../services/random-data.service';
+import { getRandomFakerValue } from '../../services/random-data.service';
 import { Radio } from 'antd';
 import LocaleSelect from '../LocaleSelect';
+
+const getRandomName = getRandomFakerValue.bind(null, 'name');
 
 const NamesPicker = ({ onChange }) => {
     const [ nameType, setNameType ] = useState('findName');
     const [ locale, setLocale ] = useState('en');
+
 
     useEffect(() => {
         if (!onChange) return;

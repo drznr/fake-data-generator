@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
-import { getRandomAddress } from '../../services/random-data.service';
+import { getRandomFakerValue } from '../../services/random-data.service';
 import { Radio } from 'antd';
 import LocaleSelect from '../LocaleSelect';
+
+const getRandomAddress = getRandomFakerValue.bind(null, 'address');
 
 const AddressPicker = ({ onChange }) => {
     const [ addressType, setAddressType ] = useState('city');
