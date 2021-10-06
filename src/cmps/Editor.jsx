@@ -88,9 +88,13 @@ const Editor = () => {
                             <Select.Option value="IdPicker">String - ID</Select.Option>
                             <Select.Option value="NamesPicker">String - Names</Select.Option>
                             <Select.Option value="AddressPicker">String - Address</Select.Option>
+                            <Select.Option value="VehiclePicker">String - vehicle</Select.Option>
                             <Select.Option value="AnimalPicker">String - Animal</Select.Option>
                             <Select.Option value="CommercePicker">String - Commerce</Select.Option>
                             <Select.Option value="CompanyPicker">String - Company</Select.Option>
+                            <Select.Option value="CredentialsPicker">String - Credentials</Select.Option>
+                            <Select.Option value="PhoneNumberPicker">String - Phone number</Select.Option>
+                            <Select.Option value="LoremPicker">String - Lorem ipsum</Select.Option>
                             <Select.Option value="ColorPicker">String - Color</Select.Option>
                             <Select.Option value="OneOfPicker">String - one of</Select.Option>
                             <Select.Option value="NumberPicker">Number</Select.Option>

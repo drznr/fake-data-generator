@@ -12,5 +12,9 @@ comps['AddressPicker'] = require('./AddressPicker').default;
 comps['AnimalPicker'] = require('./AnimalPicker').default;
 comps['CommercePicker'] = require('./CommercePicker').default;
 comps['CompanyPicker'] = require('./CompanyPicker').default;
+comps['CredentialsPicker'] = require('./CredentialsPicker').default;
+comps['LoremPicker'] = require('./LoremPicker').default;
+comps['PhoneNumberPicker'] = require('./PhoneNumberPicker').default;
+comps['VehiclePicker'] = require('./VehiclePicker').default;
 
 export default comps;

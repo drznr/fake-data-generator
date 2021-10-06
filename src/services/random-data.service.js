@@ -13,8 +13,7 @@ export  {
     getRandomDate,
     getRandomColor,
     getRandomOption,
-    getRandomFakerValue,
-    getRandomImageURL
+    getRandomFakerValue
 }
 
 function getUUID() {
@@ -82,6 +81,5 @@ function getRandomFakerValue(department, type, locale = 'en') {
     return faker[department][type]();
 }
 
-function getRandomImageURL() {
-    
-}
+/// TODO: getRandomPhoneNumber(format) // use a bloody loop
+/// TODO: getRandomImage(height, width, category) // use unsplash API and some ready made aspect ratios
