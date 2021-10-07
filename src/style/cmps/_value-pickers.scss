@@ -90,6 +90,34 @@
         border-radius: 3px;
     }
 }
+.image-url-picker {
+    padding: rem(8px) 0;
+
+    &-container {
+        height: 100%;
+        display: flex;
+
+        & > * {
+            flex-basis: 50%;
+
+            &:not(:last-child) {
+                border-inline-end: 1px solid $clr-light;
+            }
+            &:last-child {
+                padding: 0 rem(24px);
+            }
+        }
+        label > span {
+            margin-block-end: rem(6px);
+        }
+        .ant-input,
+        .ant-input-number,
+        .ant-select {
+            background-color: darken($white, 3%);
+            border-radius: 3px;
+        }
+    }
+}
 .date-picker,
 .names-picker,
 .address-picker {
