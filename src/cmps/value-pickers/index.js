@@ -16,5 +16,6 @@ comps['CredentialsPicker'] = require('./CredentialsPicker').default;
 comps['LoremPicker'] = require('./LoremPicker').default;
 comps['PhoneNumberPicker'] = require('./PhoneNumberPicker').default;
 comps['VehiclePicker'] = require('./VehiclePicker').default;
+comps['ImageUrlPicker'] = require('./ImageUrlPicker').default;
 
 export default comps;

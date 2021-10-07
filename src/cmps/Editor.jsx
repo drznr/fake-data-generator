@@ -97,6 +97,7 @@ const Editor = () => {
                             <Select.Option value="LoremPicker">String - Lorem ipsum</Select.Option>
                             <Select.Option value="ColorPicker">String - Color</Select.Option>
                             <Select.Option value="OneOfPicker">String - one of</Select.Option>
+                            <Select.Option value="ImageUrlPicker">String - image URL</Select.Option>
                             <Select.Option value="NumberPicker">Number</Select.Option>
                             <Select.Option value="DatesPicker">Date</Select.Option>
                             <Select.Option value="BooleanPicker">Boolean</Select.Option>

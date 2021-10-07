@@ -14,7 +14,8 @@ export  {
     getRandomColor,
     getRandomOption,
     getRandomFakerValue,
-    getRandomPhoneNumber
+    getRandomPhoneNumber,
+    getRandomImage
 }
 
 function getUUID() {
@@ -32,7 +33,7 @@ function getRandomId(pattern, length = 10, prefix = '', suffix = '') {
 }
 
 function getRandomPhoneNumber(pattern) {
-    return new RandExp(`[${pattern}]`).gen();
+    return new RandExp(`${pattern}`).gen();
 }
 
 function getRandomInt(min, max) {
@@ -86,5 +87,6 @@ function getRandomFakerValue(department, type, locale = 'en') {
     return faker[department][type]();
 }
 
-/// TODO: finish getRandomPhoneNumber - get pattern regexes for RandExp
-/// TODO: getRandomImage(height, width, category) // use unsplash API and some ready made aspect ratios
+function getRandomImage(width, height, category) {
+    return `https://source.unsplash.com/${width}x${height}/?${category}`;
+}
