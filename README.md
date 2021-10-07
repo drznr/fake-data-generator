@@ -8,7 +8,7 @@ This app alows you to create demo dat and download it to your machine in JSON fo
 
 ## Demo
 
-![demo](./assets/imgs/demo.gif)
+![demo](https://fake-json-generator.netlify.app/demo.gif)
 
   
 ## Tech Stack
