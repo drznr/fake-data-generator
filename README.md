@@ -1,7 +1,7 @@
 
 # JSON FAKER
 
-This app alows you to create demo dat and download it to your machine in JSON format :)
+This app allows you to create your custom demo data and download it to your machine in JSON format :)
 
 
 
