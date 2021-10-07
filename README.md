@@ -2,8 +2,7 @@
 # JSON FAKER
 
 This app allows you to create your custom demo data and download it to your machine in JSON format :)
-
-
+Check it out https://fake-json-generator.netlify.app/
 
 
 ## Demo
