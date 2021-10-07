@@ -13,9 +13,7 @@ This app allows you to create your custom demo data and download it to your mach
   
 ## Tech Stack
 
-**UI:** React, Recoil, ant design
-
-**Services:** randexp, faker
+**Client:** React, Recoil, Ant design
 
   
 ## Authors
